@@ -4,11 +4,11 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import liff from '@line/liff';
 import RegistrationForm from './components/RegistrationForm';
 import Dashboard from './components/Dashboard';
-import { UserPlus } from 'lucide-react';
+import { UserPlus, LayoutDashboard } from 'lucide-react';
 
 const LIFF_ID = '2009913183-Moxs20dd'; // Replace this with your actual LIFF ID
 
@@ -16,20 +16,26 @@ function RegistrationPage({ userId, userName, isLiffLoading }: { userId?: string
   return (
     <div className="min-h-screen bg-slate-50">
       <nav className="bg-white border-b border-slate-100 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
             <UserPlus className="w-5 h-5" />
           </div>
           <span className="font-bold text-slate-800">ElderCare ลงทะเบียน</span>
-        </div>
-        {userName && (
-          <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-full border border-slate-100">
-            <div className="w-6 h-6 bg-blue-100 rounded-full overflow-hidden">
-               <img src={`https://ui-avatars.com/api/?name=${userName}&background=random`} alt="avatar" />
+        </Link>
+        <div className="flex items-center gap-3">
+          {userName && (
+            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-full border border-slate-100">
+              <div className="w-6 h-6 bg-blue-100 rounded-full overflow-hidden">
+                <img src={`https://ui-avatars.com/api/?name=${userName}&background=random`} alt="avatar" />
+              </div>
+              <span className="text-xs font-semibold text-slate-600">{userName}</span>
             </div>
-            <span className="text-xs font-semibold text-slate-600">{userName}</span>
-          </div>
-        )}
+          )}
+          {/* ปุ่มลับสำหรับ Admin เข้า Dashboard */}
+          <Link to="/dashboard" className="p-2 text-slate-300 hover:text-slate-600 transition-colors">
+            <LayoutDashboard className="w-5 h-5" />
+          </Link>
+        </div>
       </nav>
 
       <main className="container mx-auto mt-4 px-4 pb-10">
@@ -49,6 +55,13 @@ function RegistrationPage({ userId, userName, isLiffLoading }: { userId?: string
 function DashboardPage() {
   return (
     <div className="min-h-screen bg-slate-50">
+      <nav className="bg-white border-b border-slate-100 px-4 py-4 mb-4">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link to="/" className="text-blue-600 font-bold flex items-center gap-2">
+            <UserPlus className="w-5 h-5" /> กลับหน้าลงทะเบียน
+          </Link>
+        </div>
+      </nav>
       <Dashboard />
     </div>
   );
@@ -83,7 +96,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route 
           path="/" 
@@ -93,10 +106,9 @@ export default function App() {
           path="/dashboard" 
           element={<DashboardPage />} 
         />
-        {/* Fallback to Registration */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
