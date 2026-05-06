@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Sarabun", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+.risk-card-active {
+  @apply ring-4 ring-offset-2 scale-[1.02] shadow-lg;
+}
+
+.risk-red { @apply border-red-500 bg-red-50 text-red-700; }
+.risk-yellow { @apply border-yellow-500 bg-yellow-50 text-yellow-700; }
+.risk-green { @apply border-green-500 bg-green-50 text-green-700; }
+.risk-normal { @apply border-sky-500 bg-sky-50 text-sky-700; }
+

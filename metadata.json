@@ -1,0 +1,6 @@
+{
+  "name": "ElderCare - ระบบคัดกรองผู้สูงอายุ",
+  "description": "ระบบลงทะเบียนและคัดกรองสุขภาพผู้สูงอายุ เชื่อมต่อ LINE LIFF และ Google Sheets พร้อม Dashboard สรุปผล",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
