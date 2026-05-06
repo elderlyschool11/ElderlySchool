@@ -23,7 +23,7 @@ export default function Dashboard() {
   const [error, setError] = React.useState<string | null>(null);
 
   // ลิงก์ Google Sheet ของคุณ
-  const NEW_SHEET_URL = "https://docs.google.com/spreadsheets/d/1Li9XRLRnbhXDYFeBkejQe5NDjvDN6nzfqNvh59Zf67k"; 
+  const NEW_SHEET_URL = "https://docs.google.com/spreadsheets/d/1CAFra-sydr8oxfTl2pm3vxAPLjfYh3nSqnIpvHn7hE4/"; 
 
   React.useEffect(() => {
     fetchData();
@@ -33,8 +33,8 @@ export default function Dashboard() {
     setLoading(true);
     setError(null);
     try {
-      // เรียกข้อมูลผ่าน doGet ของ Apps Script
-      const response = await fetch(SCRIPT_URL);
+      // เรียกข้อมูลผ่าน doGet ของ Apps Script พร้อมพารามิเตอร์ ?action=read
+      const response = await fetch(`${SCRIPT_URL}?action=read`);
       if (!response.ok) throw new Error('Network response was not ok');
       
       const json = await response.json();
