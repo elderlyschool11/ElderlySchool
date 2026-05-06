@@ -5,7 +5,7 @@ import {
   PieChart, Pie, Cell, Legend 
 } from 'recharts';
 import { Activity, Users, AlertTriangle, CheckCircle, Clock, ExternalLink } from 'lucide-react';
-import { RISK_LEVELS } from '../constants';
+import { RISK_LEVELS, SCRIPT_URL } from '../constants';
 
 // Mock data for the dashboard demo
 // ข้อมูลเริ่มต้นเป็น 0 ทั้งหมด
