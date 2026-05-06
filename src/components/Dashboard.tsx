@@ -34,7 +34,7 @@ export default function Dashboard() {
           <p className="text-slate-500">ข้อมูลการคัดกรองสุขภาพผู้สูงอายุล่าสุด</p>
         </div>
         <a 
-          href="https://docs.google.com/spreadsheets/d/1Li9XRLRnbhXDYFeBkejQe5NDjvDN6nzfqNvh59Zf67k" 
+          href="https://docs.google.com/spreadsheets/d/1CAFra-sydr8oxfTl2pm3vxAPLjfYh3nSqnIpvHn7hE4" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
